@@ -1,0 +1,30 @@
+.wrraper{
+    display: flex;
+}
+.icon{
+    display: block;
+   max-width:300px ;
+   height: auto;
+   margin-right: 15px;
+}
+.span{
+    margin-right: 10px;
+}
+.homeLink{
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 600;
+   padding: 2px 5px;
+    border: 1px solid black;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.castLink{
+    display: inline-block;
+   margin-bottom: 5px;
+}
+.container{
+    border-bottom: 2px solid gray;
+    border-top: 2px solid gray;
+    margin-top: 10px;
+}

@@ -1,0 +1,8 @@
+.nameTitle{
+    font-size: larger;
+    font-weight: 700;
+}
+.span{
+    display: inline-block;
+    margin-left: 5px;
+}
