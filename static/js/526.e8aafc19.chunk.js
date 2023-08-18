@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkreact_homework_template=self.webpackChunkreact_homework_template||[]).push([[526],{526:function(e,t,n){n.r(t),n.d(t,{default:function(){return c}});var r=n(87),a="NotFaund_title__8Nmen",o=n(184),c=function(){return(0,o.jsx)("div",{children:(0,o.jsxs)("h1",{className:a,children:["Not Faund. Plise go to the ",(0,o.jsx)(r.rU,{to:"/",children:"home"}),"  page"]})})}}}]);
+//# sourceMappingURL=526.e8aafc19.chunk.js.map
