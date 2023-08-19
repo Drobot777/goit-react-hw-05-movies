@@ -7,7 +7,7 @@ const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams ();
   const usname = searchParams.get ('query');
   const [objectMovies, setObjectMovies] = useState ([]);
-const location=useLocation()
+  const location = useLocation ();
   const handleSubmit = e => {
     e.preventDefault ();
     const form = e.currentTarget;
@@ -22,7 +22,11 @@ const location=useLocation()
     return arry.map ((el, i) => {
       return (
         <li key={i}>
-          <Link to={`/movies/${el.id}`} state={{form:location}} className={css.link}>
+          <Link
+            to={`/movies/${el.id}`}
+            state={{from: location}}
+            className={css.link}
+          >
             {el.original_title}
           </Link>
         </li>

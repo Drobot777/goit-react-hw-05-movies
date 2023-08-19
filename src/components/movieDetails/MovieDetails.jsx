@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import {Link, useParams, useLocation, Routes, Route} from 'react-router-dom';
 import {Cast} from 'components/cast/Cast';
 import {Reviews} from 'components/rewiers/Review';
@@ -10,10 +10,9 @@ const MovieDetails = () => {
   const {movieId} = useParams ();
   const [movie, setMovie] = useState ();
 const location = useLocation();
-  const backLinkHref = location.state?.from || "/";
-console.log(backLinkHref)
-console.log(location.state)
-  const rendersMovie = arry => {
+  const backLinkHref = useRef(location.state?.from?? "/");
+
+  const rendersMovie = (arry) => {
     if (arry.length === 0 || !arry) {
       return;
     }
@@ -77,7 +76,7 @@ console.log(location.state)
   return (
     <div>
       <Link
-      to= {backLinkHref}
+      to= {backLinkHref.current}
         className={css.homeLink}
       >
         Go back
