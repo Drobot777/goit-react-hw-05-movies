@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import {Link, useParams, useNavigate, Routes, Route} from 'react-router-dom';
+import {Link, useParams, useLocation, Routes, Route} from 'react-router-dom';
 import {Cast} from 'components/cast/Cast';
 import {Reviews} from 'components/rewiers/Review';
 import {appiAxiosMovieID} from 'appi';
@@ -9,8 +9,10 @@ import css from './MovieDetails.module.css';
 const MovieDetails = () => {
   const {movieId} = useParams ();
   const [movie, setMovie] = useState ();
-  const navigate = useNavigate ();
-
+const location = useLocation();
+  const backLinkHref = location.state?.from || "/";
+console.log(backLinkHref)
+console.log(location.state)
   const rendersMovie = arry => {
     if (arry.length === 0 || !arry) {
       return;
@@ -43,10 +45,10 @@ const MovieDetails = () => {
             <p>Additional information</p>
             <ul>
               <li key={nanoid ()}>
-                <Link to="cast" className={css.castLink}>Cast</Link>
+                <Link to="cast" state={location.state} className={css.castLink}>Cast</Link>
               </li>
               <li key={nanoid ()}>
-                <Link to="reviews" className={css.castLink}>Reviews</Link>
+                <Link to="reviews" state={location.state} className={css.castLink}>Reviews</Link>
               </li>
             </ul>
 
@@ -74,13 +76,12 @@ const MovieDetails = () => {
 
   return (
     <div>
-      <button
-        type="button"
-        onClick={() => navigate (-1)}
+      <Link
+      to= {backLinkHref}
         className={css.homeLink}
       >
         Go back
-      </button>
+      </Link>
       {movie && rendersMovie (movie)}
       <Routes>
         <Route path="cast" element={<Cast />} />

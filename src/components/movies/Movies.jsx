@@ -1,13 +1,13 @@
 import {useState, useEffect} from 'react';
 import css from './Movies.module.css';
-import {Link, useSearchParams} from 'react-router-dom';
+import {Link, useLocation, useSearchParams} from 'react-router-dom';
 import {appiAxiosSearchMovie} from 'appi';
 
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams ();
   const usname = searchParams.get ('query');
   const [objectMovies, setObjectMovies] = useState ([]);
-
+const location=useLocation()
   const handleSubmit = e => {
     e.preventDefault ();
     const form = e.currentTarget;
@@ -22,7 +22,7 @@ const Movies = () => {
     return arry.map ((el, i) => {
       return (
         <li key={i}>
-          <Link to={`/movies/${el.id}`} className={css.link}>
+          <Link to={`/movies/${el.id}`} state={{form:location}} className={css.link}>
             {el.original_title}
           </Link>
         </li>
